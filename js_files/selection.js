@@ -10,7 +10,8 @@ function swap(el1,el2) {
 
 async function selectionSort() {
     let i ;
-    algo.innerHTML = "SELECTION SORT"
+    algo.innerHTML = "SELECTION SORT" ;
+    disableFunc() ;
     for(i=0;i<arr.length;i++)
     {
         swap(arr[i],arr[i]);
@@ -37,6 +38,7 @@ async function selectionSort() {
         arr[i].style.background = "#198754" ;
     }
     arr[i].style.background = "#198754" ;
+    enableFunc() ;
 } ;
 
 let selection = document.getElementsByClassName("selection-sort") ;

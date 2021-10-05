@@ -3,6 +3,8 @@
 var arrSize = document.getElementById("arr_sz")
 const barDiv = document.getElementById("bars") ;
 const algo = document.getElementById("algo-name") ;
+let v = document.getElementById("value-h") ;
+v.style.color = "cyan" ;
 barDiv.removeChild(barDiv.firstChild);
 function barmake(){
     let j ;
@@ -32,6 +34,8 @@ arrSize.addEventListener("input",()=>{
    {
         barDiv.removeChild(barDiv.firstChild) ;
    }
+   
+   v.innerHTML = `Value : ${arrSize.value}` ;
    barmake() ;
 });
 newArray[0].addEventListener('click',()=>{
@@ -42,3 +46,23 @@ newArray[0].addEventListener('click',()=>{
    }
    barmake() ;
 }) ;
+
+function disableFunc() {
+    newArray[0].disabled = true ;
+    quick[0].disabled = true ;
+    merg[0].disabled = true ;
+    arrSize.disabled = true ;
+    selection[0].disabled = true ;
+    insertion[0].disabled = true ;
+    bubble[0].disabled = true ;
+}
+
+function enableFunc() {
+    newArray[0].disabled = false ;
+    quick[0].disabled =false ;
+    merg[0].disabled = false;
+    arrSize.disabled = false;
+    selection[0].disabled = false ;
+    insertion[0].disabled = false ;
+    bubble[0].disabled = false ;
+}

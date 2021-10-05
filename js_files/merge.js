@@ -59,6 +59,11 @@ async function merge(left,mid,right)
         indexOfMergedArray++;
     }
 
+    for(let i=left;i<=right;i++)
+    {
+        arr[i].style.background = "blue" ;
+    }
+
     return ;
 }
 
@@ -68,22 +73,25 @@ async function mergeSortUtil(begin,end){
         return ;
 
     let mid = begin + Math.floor((end - begin) / 2);
+    await new Promise(resolve => setTimeout(() => {resolve();},100));  
 
-    mergeSortUtil(begin, mid);
-    mergeSortUtil(mid + 1, end);
-    merge(begin, mid, end);
+    await mergeSortUtil(begin, mid);
+    await mergeSortUtil(mid + 1, end);
+    await merge(begin, mid, end);
     return ;
 }
 
 async function mergeSort() {
     let i ;
     algo.innerHTML = "MERGE SORT" ;
+    disableFunc() ;
     for(i=0;i<arr.length;i++)
     {
         swap(arr[i],arr[i]);
     }
     
-    mergeSortUtil(0,arr.length-1) ;
+    await mergeSortUtil(0,arr.length-1) ;
+    enableFunc() ;
 } ;
 
 let merg = document.getElementsByClassName("merge-sort") ;

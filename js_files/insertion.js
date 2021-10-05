@@ -11,6 +11,7 @@ function swap(el1,el2) {
 async function insertionSort() {
     let i ;
     algo.innerHTML = "INSERTION SORT" ;
+    disableFunc() ;
     for(i=0;i<arr.length;i++)
     {
         swap(arr[i],arr[i]);
@@ -32,6 +33,11 @@ async function insertionSort() {
         }
         
     }
+    for(let i=0;i<arr.length;i++)
+    {
+        arr[i].style.background = "#198754" ;
+    }
+    enableFunc() ;
     
 } ;
 

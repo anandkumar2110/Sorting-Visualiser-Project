@@ -32,23 +32,29 @@ async function quickUtil(low,high)
     {
         
         let pi = partition(low, high);
-        await new Promise(resolve => setTimeout(() => {resolve();},1000));  
-        quickUtil(low, pi - 1);
-        await new Promise(resolve => setTimeout(() => {resolve();},1000)); 
-        quickUtil(pi + 1, high);
-        await new Promise(resolve => setTimeout(() => {resolve();},1000)); 
+        await new Promise(resolve => setTimeout(() => {resolve();},500));  
+        
+        await quickUtil(low, pi - 1);
+        await quickUtil(pi + 1, high);
     }
+
 } ;
 
 async function quickSort() {
     let i ;
-    algo.innerHTML = "QUICK SORT"
+    algo.innerHTML = "QUICK SORT" ;
+    disableFunc() ;
     for(i=0;i<arr.length;i++)
     {
         swap(arr[i],arr[i]);
     }
-    quickUtil(0,arr.length-1) ;
-    await new Promise(resolve => setTimeout(() => {resolve();},1000));
+    
+    await quickUtil(0,arr.length-1) ;
+    for(i=0;i<arr.length;i++)
+    {
+        arr[i].style.background = "#198754" ;
+    }
+    enableFunc();
 } ;
 
 let quick = document.getElementsByClassName("quick-sort") ;
@@ -56,5 +62,5 @@ let quick = document.getElementsByClassName("quick-sort") ;
 
 
 quick[0].addEventListener('click',()=>{
-    quickSort() ;
+     quickSort() ;
 });

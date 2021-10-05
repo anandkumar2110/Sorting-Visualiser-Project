@@ -11,6 +11,7 @@ function swap(el1,el2) {
 async function bubbleSort() {
     let i ;
     algo.innerHTML = "BUBBLE SORT" ;
+    disableFunc() ;
     for(i=0;i<arr.length;i++)
     {
         swap(arr[i],arr[i]);
@@ -34,6 +35,7 @@ async function bubbleSort() {
         }
         arr[arr.length-i-1].style.background = "#198754" ;
     }
+    enableFunc() ;
 } ;
 
 let bubble = document.getElementsByClassName("bubble-sort") ;
